@@ -1,3 +1,8 @@
+# איך לתרום לפרוייקט הזה ולתרגל תרומה לקוד פתוח?
+## יש לפתוח אישיו
+תבקשו לתקן את האתר ולהוסיף קובץ md עם פרטים עליכם בתוך תיקיית peopele.
+
+
 # Website
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
