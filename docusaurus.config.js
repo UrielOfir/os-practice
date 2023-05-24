@@ -7,8 +7,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "אתר לתרגול תרומה לקוד פתוח - קהילת מעקף",
-  tagline: "Dinosaurs are cool",
-  favicon: "img/favicon.ico",
+  tagline: "כאן תלמדו איך כל אחד יכול לתרום לקוד פתוח",
+  favicon: "img/Maakaf.ico",
 
   // Set the production url of your site here
   url: "https://melodious-muffin-2be5a1.netlify.app",
@@ -82,6 +82,12 @@ const config = {
             label: "GitHub",
             position: "right",
           },
+          {
+            href: "https://discord.gg/TVSpRVqM",
+            label: "Discord",
+            position: "right",
+          },
+
         ],
       },
       footer: {
@@ -100,16 +106,8 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
                 label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
+                href: "https://discord.gg/TVSpRVqM",
               },
             ],
           },
