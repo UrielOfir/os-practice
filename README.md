@@ -6,6 +6,9 @@
 ## 4. פתחו pull-request. נא לציין איזה issue אתם מעוניינים לסגור.
 
 ומה שנשאר זה שהמתחזק של הפרוייקט יאשר את ה pull-request שלכם!
+ואז תוכלו לראות את הקובץ שהוספתם בכתובת הזו באינטרנט:
+https://melodious-muffin-2be5a1.netlify.app/docs/intro/
+כשתפתחו בתפריט את people :)
 
 
 # Website
