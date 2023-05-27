@@ -18,7 +18,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "Ma'akaf", // Usually your GitHub org/user name.
+  organizationName: "Ma'akaf-OS practice site", // Usually your GitHub org/user name.
   projectName: "open-sorce tutorial", // Usually your repo name.
 
   onBrokenLinks: "throw",
