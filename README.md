@@ -1,16 +1,20 @@
 # איך לתרום לפרוייקט הזה ולתרגל תרומה לקוד פתוח?
+
 ## 1. יש לפתוח אישיו
+
 תבקשו לתקן את האתר ולהוסיף קובץ md עם פרטים עליכם בתוך תיקיית docs/people .
 לפני המעבר לשלב הבא יש להמתין עד שהמיינטייר של הפרוייקט יגדיר אתכם assign.
+
 ## 2. יש לעשות fork לפרוייקט כדי שתוכלו לערוך אותו.
+
 ## 3. הוסיפו בפרוייקט אצלכם את הקובץ עם הפרטים שלכם.
+
 ## 4. פתחו pull-request. נא לציין איזה issue אתם מעוניינים לסגור.
 
 ומה שנשאר זה שהמתחזק של הפרוייקט יאשר את ה pull-request שלכם!
 ואז תוכלו לראות את הקובץ שהוספתם בכתובת הזו באינטרנט:
 https://melodious-muffin-2be5a1.netlify.app/docs/intro/
 כשתפתחו בתפריט את people :)
-
 
 # Website
 
@@ -19,13 +23,13 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 ### Installation
 
 ```
-$ yarn
+$ npm install
 ```
 
 ### Local Development
 
 ```
-$ yarn start
+$ npm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
@@ -33,7 +37,7 @@ This command starts a local development server and opens up a browser window. Mo
 ### Build
 
 ```
-$ yarn build
+$ npm run build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
