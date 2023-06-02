@@ -28,7 +28,7 @@
 פקודת commit:
 git commit -m "your message"
 פקודת push:
-git push origin <branch-name>
+ git push --set-upstream origin <branch-name>
 
 
 
