@@ -5,15 +5,37 @@
 תבקשו לתקן את האתר ולהוסיף קובץ md עם פרטים עליכם בתוך תיקיית docs/people .
 לפני המעבר לשלב הבא יש להמתין עד שהמיינטייר של הפרוייקט יגדיר אתכם assign.
 
+[מדריך באנגלית של גיטהאב לפתיחת אישו](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
+
+
+
 ## 2. יש לעשות fork לפרוייקט כדי שתוכלו לערוך אותו
+
+[מדריך באנגלית של גיטהאב לפתיחת fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+
 
 ## 3. יש לעשות clone למחשב האישי שלכם.
 
+[מדריך באנגלית של גיטהאב לפתיחת פורק](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
 ## 4. פתחו בראנץ' חדש ובצעו בו את השיוניים הרוציים.
+
+[מדריך באנגלית של גיטהאב לפתיחת בראנץ'](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
+
 
 ## 5. לאחר ביצוע commit יש לבצע push ליפו האישי שלכם.
 
+פקודת commit:
+git commit -m "your message"
+פקודת push:
+git push origin <branch-name>
+
+
+
 ## 6. פתחו pull-request. נא לציין איזה issue אתם מעוניינים לסגור.
+
+[מדריך באנגלית של גיטהאב לפתיחת pull-request](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop)
+
 
 ומה שנשאר זה שהמתחזק של הפרוייקט יאשר את ה pull-request שלכם!
 ואז תוכלו לראות את הקובץ שהוספתם בכתובת הזו באינטרנט:
