@@ -5,7 +5,7 @@
 תבקשו לתקן את האתר ולהוסיף קובץ md עם פרטים עליכם בתוך תיקיית docs/people .
 לפני המעבר לשלב הבא יש להמתין עד שהמיינטייר של הפרוייקט יגדיר אתכם assign.
 
-[מדריך באנגלית של גיטהאב לפתיחת אישו](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
+[מדריך באנגלית של גיטהאב לפתיחת issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
 
 
 
@@ -16,7 +16,7 @@
 
 ## 3. יש לעשות clone למחשב האישי שלכם.
 
-[מדריך באנגלית של גיטהאב לפתיחת פורק](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+[מדריך באנגלית של גיטהאב לפתיחת clone מקומי](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 ## 4. פתחו בראנץ' חדש ובצעו בו את השיוניים הרוציים.
 
@@ -25,12 +25,12 @@
 
 ## 5. לאחר ביצוע commit יש לבצע push ליפו האישי שלכם.
 
-פקודת commit:
-git commit -m "your message"
-פקודת push:
- git push --set-upstream origin <branch-name>
-
-
+הפקודות הנדרשות ל commit ול push הן:
+```
+git commit -m "your commit message" 
+git push --set-upstream origin <branch-name>
+```
+שימו לב ששם branch זה משהו שיצרתם בסעיף 4
 
 ## 6. פתחו pull-request. נא לציין איזה issue אתם מעוניינים לסגור.
 
