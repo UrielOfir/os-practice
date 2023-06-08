@@ -23,7 +23,7 @@
 [מדריך באנגלית של גיטהאב לפתיחת בראנץ'](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
 
 
-## 5. לאחר ביצוע commit יש לבצע push ליפו האישי שלכם.
+## 5. לאחר ביצוע commit יש לבצע push לריפו האישי שלכם.
 
 הפקודות הנדרשות ל commit ול push הן:
 ```
