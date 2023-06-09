@@ -18,7 +18,7 @@
 
 [מדריך באנגלית של גיטהאב לפתיחת clone מקומי](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
-## 4. פתחו בראנץ' חדש ובצעו בו את השיוניים הרוציים.
+## 4. פתחו בראנץ' חדש ובצעו בו את השינויים הרצויים.
 
 [מדריך באנגלית של גיטהאב לפתיחת בראנץ'](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
 
