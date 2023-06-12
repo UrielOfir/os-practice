@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -28,8 +28,8 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: "he",
+    locales: ["he"],
   },
 
   presets: [
@@ -41,8 +41,7 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/UrielOfir/os-practice",
+          editUrl: "https://github.com/UrielOfir/os-practice",
         },
         // blog: {
         //   showReadingTime: true,
@@ -64,7 +63,7 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "Ma'akaf",
+        title: "Ma'akaf - OS practice site",
         logo: {
           alt: "My Site Logo",
           src: "img/Maakaf.jpeg",
@@ -87,7 +86,6 @@ const config = {
             label: "Discord",
             position: "right",
           },
-
         ],
       },
       footer: {
