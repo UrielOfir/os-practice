@@ -1,0 +1,7 @@
+name: Add MD file
+description: Ask to be assigned for creating an MD file
+labels: ["md"]
+body:
+  - type: textarea
+    attributes:
+      label: Explain what you want do to (i.e. create an MD file)
