@@ -1,1 +1,0 @@
-Hi! My name is Menachem and this is my first attemp to contribute to the open source community

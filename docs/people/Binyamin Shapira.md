@@ -1,1 +1,0 @@
-"Hi, my name is Binyamin Shapira, and this is the first time that I have contributed to OS"
