@@ -8,4 +8,4 @@ https://github.com/W3r7y
 
 You can also find me on [LinkedIn](https://www.linkedin.com/in/ernest-vaulin/)
 
-![Alt text][id]
+![OS Community](https://user-images.githubusercontent.com/28990589/34908095-57a48cce-f83f-11e7-87d2-7579d0be5740.jpg)
