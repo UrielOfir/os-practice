@@ -1,48 +1,29 @@
-name: Check New MD Files in 'docs/people'
-
-on:
+on: 
   pull_request:
-    types:
-      - opened
+    types: [opened, synchronize]
 
 jobs:
-  check-new-md-files:
+
+  validate:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
 
-      - name: Identify New MD Files
-        id: changed-files
-        run: |
-          # Use GitHub's REST API to list files in the pull request
-          PR_NUMBER=${{ github.event.pull_request.number }}
-          PR_FILES=$(curl -s "https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER/files" | jq -r '.[].filename')
+    - uses: actions/checkout@v2
 
-          # Filter files to only include new MD files in the 'docs/people' folder
-          NEW_MD_FILES=""
-          for file in $PR_FILES; do
-            if [[ $file == docs/people/*.md ]]; then
-              NEW_MD_FILES="$NEW_MD_FILES $file"
-            fi
-          done
+    - id: changed-files
+      uses: tj-actions/changed-files@v35
+      with:
+        files: |
+          *.md
 
-          echo "::set-output name=new_md_files::$NEW_MD_FILES"
-        continue-on-error: true
+    - name: Set environment
+      if: ${{ steps.changed-files.outputs.any_changed == 'true' }}  
+      run: |
+        echo "MD_FILE_PATH=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_ENV
 
-      - name: Check New MD Files
-        run: |
-          # Iterate through the new MD files and check their format
-          for file in ${{ steps.changed-files.outputs.new_md_files }}; do
-            if ! [ -f "$file" ]; then
-              echo "Error: MD file not found: $file"
-              exit 1
-            fi
-            # Check if the file contains a valid header1 and body content
-            if ! grep -qE "^#\s" "$file" || ! grep -qE "^#\s.+" "$file"; then
-              echo "Error: $file does not contain a valid header1 and body content."
-              exit 1
-            fi
-          done
-        continue-on-error: true
+    - name: Validate
+      if: ${{ steps.changed-files.outputs.any_changed == 'true' }}
+      run: | 
+        npx ts-node --esm validators/md-files-validator/index.ts
