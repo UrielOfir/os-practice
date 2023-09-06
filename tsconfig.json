@@ -2,11 +2,15 @@
   // This file is not used in compilation. It is here just for a nice editor experience.
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "target": "ES6",
+    "target": "es2017",
     "module": "ESNext",
-    "moduleResolution": "NodeNext",
   },
-  "include": ["src", "validator"],
-  "exclude": ["node_modules"]
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS",
+      "noImplicitAny": false,
+      "sourceMap": true,
+      "outDir": "scripts/"
+    }
+  }
 }
