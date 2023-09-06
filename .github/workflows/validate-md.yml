@@ -13,4 +13,4 @@ jobs:
         node-version: '16'
     - run: npm ci
     - name: Validate Markdown
-      run: npm run validate-md
+      run: npm run md-validator
