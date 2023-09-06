@@ -1,3 +1,0 @@
-# yarin keren
-
-Shalom Olam !
