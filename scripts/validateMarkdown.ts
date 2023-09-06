@@ -21,9 +21,7 @@ export default async function mdFilesValidator(){
       userAgent: 'maakag v1.0.0',
     });
 
-    const res = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', {
-      
-    })
+    const res = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}/files')
     console.log(res.data);
     
     const prFiles = await octokit.rest.pulls.listFiles()
