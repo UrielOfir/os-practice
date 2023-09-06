@@ -1,54 +1,66 @@
-import * as fs from 'fs';
-import {default as markdownlint} from 'markdownlint';
-import { Octokit } from "octokit";
-export default async function run(){
+// import * as fs from 'fs';
+// import {default as markdownlint} from 'markdownlint';
+import { config } from 'dotenv';
 
+
+import { Octokit } from "@octokit/rest";
+
+export default async function mdFilesValidator(){
+  config();
   try {
     console.log('Validating docs...');
+    const fetch = await import('node-fetch').then(mod => mod.default)
+    const { GITHUB_TOKEN, PR_NUMBER, OWNER, REPO } = process.env;
 
-    const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN, request: { fetch} });
-    const { data: files } = await octokit.rest.pulls.listFiles({
-      owner: 'owner',
-      repo: 'repo',
-      pull_number: Number(process.env.PR_NUMBER)  
+
+    console.log(process.env.GITHUB_TOKEN, PR_NUMBER, OWNER, REPO );
+    
+    const octokit = new Octokit({ 
+      auth: GITHUB_TOKEN, 
+      request: { fetch: fetch },
+      userAgent: 'maakag v1.0.0',
     });
-    
-    console.log(files);
-    
-    
-    // Filter Markdown files in docs folder
-    const docsFiles = files.filter(file => {
-      console.log(file);
-      return file.filename.includes('/docs/people/') &&
-            file.filename.endsWith('.md');
-    });
-    
-    // Validate each file
-    for (let file of docsFiles) {
-      const content = fs.readFileSync(file as unknown as string, 'utf8');
-      // Rules 
-      const result = markdownlint.sync({
-        strings: {
-          content 
-        },
-        config: {
-          "MD025": false, // Allow multiple top level headers 
-        }
-      });
-    
-      if (!!result.length) {
-        // Print markdownlint errors  
-        console.error(file, result);
-        // Exit with failing code
-        process.exit(1);
-      }
-    }
-    
+
+    await octokit.request("GET /");
+    const prFiles = (await octokit.pulls.get()).data
+
+    console.log({prFiles});
     console.log('All Markdown files look valid!');
-  } catch (error) {
-    console.log(error);
     
+    return prFiles
+  } catch (error) {
+    console.error('there was an error: ', error.message, error.stack, 'Please check your environment variables and try again');
+
+    process.exit(1);
   }
 }
 
-run().then(console.log);
+        // console.log(`octokit response data: ${docsFiles}`);
+
+        // Filter Markdown files in docs folder
+  
+    // const mdFiles = docsFiles.filter(({ filename }) => filename.includes('/docs/people/') && filename.endsWith('.md'));
+    
+    
+    // Validate each file
+    // for (let md of mdFiles) {
+    //   const content = fs.readFileSync(file as unknown as string, 'utf8');
+    //   // Rules 
+    //   const result = markdownlint.sync({
+    //     strings: {
+    //       content 
+    //     },
+    //     config: {
+    //       "MD025": false, // Allow multiple top level headers 
+    //     }
+    //   });
+    
+    //   if (!!result.length) {
+    //     // Print markdownlint errors  
+    //     console.error(file, result);
+    //     // Exit with failing code
+    //     process.exit(1);
+    //   }
+    // }  
+
+mdFilesValidator().then(console.log);

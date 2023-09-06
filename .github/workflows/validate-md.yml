@@ -15,4 +15,7 @@ jobs:
     - name: Validate Markdown
       run: npm run md-validator
       env:
-        GITHUB_TOKEN: ${{ github.token }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PR_NUMBER: ${{ github.event.number }}
+        OWNER: ${{ github.action.username }}
+        REPO: ${{ github.event.repository.name }}
