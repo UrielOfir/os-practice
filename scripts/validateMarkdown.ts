@@ -3,7 +3,7 @@
 import { config } from 'dotenv';
 
 
-import { Octokit } from "@octokit/rest";
+import { Octokit } from "octokit";
 
 export default async function mdFilesValidator(){
   config();
@@ -21,10 +21,13 @@ export default async function mdFilesValidator(){
       userAgent: 'maakag v1.0.0',
     });
 
-    await octokit.request("GET /");
-    const prFiles = (await octokit.pulls.get()).data
-
-    console.log({prFiles});
+    const res = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', {
+      
+    })
+    console.log(res.data);
+    
+    const prFiles = await octokit.rest.pulls.listFiles()
+    
     console.log('All Markdown files look valid!');
     
     return prFiles
