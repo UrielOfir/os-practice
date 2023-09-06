@@ -1,15 +1,13 @@
 import * as fs from 'fs';
-
 import {default as markdownlint} from 'markdownlint';
 import { Octokit } from "octokit";
 
 export default async function run(){
+
   try {
-  
     console.log('Validating docs...');
-    
-    const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
-    
+
+    const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN, request: { fetch: require('node-fetch')} });
     const { data: files } = await octokit.rest.pulls.listFiles({
       owner: 'owner',
       repo: 'repo',

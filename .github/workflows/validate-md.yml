@@ -14,3 +14,5 @@ jobs:
     - run: npm ci
     - name: Validate Markdown
       run: npm run md-validator
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
