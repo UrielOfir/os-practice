@@ -9,3 +9,5 @@ jobs:
       with:
         globs: |
           *.md
+          !LICENSE.md
+          !README.md
