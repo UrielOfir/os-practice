@@ -11,11 +11,20 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '16'
-    - run: npm ci
-    - name: Validate Markdown
-      run: npm run md
+    - run: |
+        npm ci
+        touch .env
+        echo ${{ secrets.GITHUB_TOKEN }}
+        echo ${{ github.repository_owner }}
+        echo ${{ github.event.repository.name }}
+        echo ${{ github.event.pull_request.number }}
+        echo GITHUB_TOKEN=$GITHUB_TOKEN >> .env
+        echo PR_NUMBER=$PR_NUMBER >> .env
+        echo OWNER=$OWNER >> .env
+        echo REPO=$REPO >> .env
+        npm run md
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PR_NUMBER: ${{ github.event.number }}
-        OWNER: ${{ github.action.username }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        OWNER: ${{ github.repository_owner }}
         REPO: ${{ github.event.repository.name }}
