@@ -2,14 +2,14 @@
 // import {default as markdownlint} from 'markdownlint';
 import { config } from 'dotenv';
 import { Octokit  } from "@octokit/rest";
-
+import * as git from 'actions/checkout@v2';
 export default async function mdFilesValidator(){
   config();
   try {
+    core
     console.log('Validating docs...');
-    const fetch = await import('node-fetch').then(mod => mod.default)
+    const fetch = await import('node-fetch').then(b => b.default)
     const { GITHUB_TOKEN, PR_NUMBER, OWNER, REPO } = process.env;
-    
     const octokit = new Octokit({ 
       auth: GITHUB_TOKEN, 
       request: { fetch: fetch },
@@ -18,11 +18,24 @@ export default async function mdFilesValidator(){
     
     const { data: listFiles } = await octokit.rest.pulls.listFiles({
       owner: OWNER,
-      repo: OWNER,
-      pull_number: Number(PR_NUMBER),
+      repo: REPO,
+      pull_number: parseInt(PR_NUMBER),
     });
 
-    console.log(listFiles);
+    const mdFile = listFiles.filter((file) => file.filename.endsWith('.md'));
+    console.log(listFiles.map((file) => file.filename));
+    
+    console.log(mdFile, 'md file found in the PR');
+    
+    // .forEach(async (file) => {
+    //   console.log(`Validating ${file.filename}...`);
+    //   const { data } = await octokit.rest.pulls.get({
+    //     owner: OWNER,
+    //     repo: REPO,
+    //     pull_number: parseInt(PR_NUMBER),
+    //     file_path: file.filename,
+    //   });
+
     console.log('All Markdown files look valid!');    
     // return prFiles
   } catch (error) {
