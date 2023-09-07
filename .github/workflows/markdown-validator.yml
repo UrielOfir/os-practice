@@ -7,7 +7,5 @@ jobs:
     - uses: actions/checkout@v4
     - uses: DavidAnson/markdownlint-cli2-action@v12
       with:
-        globs: |
-          docs/people/*.md
-          !LICENSE.md
-          !README.md
+        fix: true
+        globs: docs/people/*.md
