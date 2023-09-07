@@ -1,2 +1,3 @@
-## Hi
-Im Omer , nice to meet you 
+# Omer
+
+Hi Im Omer , nice to meet you

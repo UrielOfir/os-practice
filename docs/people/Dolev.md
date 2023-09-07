@@ -1,1 +1,3 @@
-# Hi, my name is Dolev, and this is the first time that I have contributed to OS
+# Dolev
+
+Hi, my name is Dolev, and this is the first time that I have contributed to OS
