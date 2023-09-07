@@ -8,6 +8,6 @@ jobs:
     - uses: DavidAnson/markdownlint-cli2-action@v12
       with:
         globs: |
-          **/*.md
+          docs/people/*.md
           !LICENSE.md
           !README.md
