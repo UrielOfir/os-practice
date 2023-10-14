@@ -1,1 +1,0 @@
-Hello Everyone, This is the first time I'm contributing to an OS project!

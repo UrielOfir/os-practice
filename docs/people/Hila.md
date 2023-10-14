@@ -1,1 +1,0 @@
-"Hi, my name is Hila, and this is the first commit "
