@@ -1,1 +1,0 @@
-Hi everyone! It's Moshe here!

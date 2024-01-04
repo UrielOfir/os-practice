@@ -1,1 +1,0 @@
-She had man hands
