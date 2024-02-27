@@ -11,13 +11,14 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Check number of changed files
         id: changed_files
         uses: tj-actions/changed-files@v42
 
       - name: Fail if more than 1 file changed
+        id: fail_if_more_than_one_file_changed
         if: steps.changed_files.outputs.all_changed_and_modified_files_count > 1
         run: |
           echo "❌ Only one file change is allowed. Please revert additional changes."
@@ -46,7 +47,7 @@ jobs:
           echo "status='success'" >> $GITHUB_OUTPUT
 
       - name: Comment on PR and prevent approval if error
-        if: steps.check_added_file.outputs.status == 'error' || steps.fail_if_more_than_one_file_changed.outputs.status == 'error'
+        if: steps.fail_if_more_than_one_file_changed.outputs.status == 'error' || steps.check_added_file.outputs.status == 'error'
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
