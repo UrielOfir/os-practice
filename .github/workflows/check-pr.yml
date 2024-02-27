@@ -27,19 +27,24 @@ jobs:
 
       - name: Check for added file in ./docs/people
         id: check_added_file
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed_files.outputs.all_changed_files }}
         run: |
-          added_files=$(git diff --cached --name-only --diff-filter=A)
-          if [[ ! $added_files =~ ./docs/people/([^/]+)\.md ]]; then
-            echo "❌ A file named '*.md' must be added in the ./docs/people directory."
-            echo "status='error'" >> $GITHUB_OUTPUT
-            echo "comment='A file named '*.md' must be added in the ./docs/people directory.'"
-            echo "comment=${comment}" >> $GITHUB_OUTPUT
+          for file in ${ALL_CHANGED_FILES}; do
+              if [[ $file != *"/docs/people/"* || $file != *".md" ]]; then
+                  echo "❌ A file named '*.md' must be added in the ./docs/people directory."
+                  echo "status='error'" >> $GITHUB_OUTPUT
+                  echo "comment='A file named '*.md' must be added in the ./docs/people directory.'"
+                  echo "comment=${comment}" >> $GITHUB_OUTPUT
+                  done
+              fi
+          done
 
       - name: All checks passed
         if: always()
         run: |
           echo "✅ All checks passed!"
-          echo "::set-output name=status::success"
+          echo "status='success'" >> $GITHUB_OUTPUT
 
       - name: Comment on PR and prevent approval if error
         if: steps.check_added_file.outputs.status == 'error' || steps.fail_if_more_than_one_file_changed.outputs.status == 'error'
