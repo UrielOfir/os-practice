@@ -40,7 +40,7 @@ git push --set-upstream origin <branch-name>
 
 ומה שנשאר זה שהמתחזק של הפרוייקט יאשר את ה pull-request שלכם!
 ואז תוכלו לראות את הקובץ שהוספתם בכתובת הזו באינטרנט:
-https://os-practice.vercel.app/docs/people
+https://os-practice.vercel.app/docs/intro
 כשתפתחו בתפריט את people :)
 
 # Website
