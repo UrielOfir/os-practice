@@ -2,46 +2,45 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# איך לתרום לפרוייקט הזה ולתרגל תרומה לקוד פתוח?
 
-Let's discover **Docusaurus in less than 5 minutes**.
+מטרת הפרוייקט היא תרומה של קובץ md שיוצג באתגר בחלק של peoples. דוגמה לתרומה מוצלחת אפשר לראות [פה](./people/הומר%20סימפסון.md) דוגמא לתרומה
 
-## Getting Started
+## 1. יש לפתוח אישיו
 
-Get started by **creating a new site**.
+כאשר אתם פותחים issue חדש יש לכם אפשרות לפתוח אישיו של הוספת md,
+בחרו get started והכניסו אישיו. כאשר תשימו את הלייבל 'md' על האישיו - באופן אוטומטי תשובצו לקבל אחריות עליו.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+[מדריך באנגלית של גיטהאב לפתיחת issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
 
-### What you'll need
+## 2. יש לעשות fork לפרוייקט כדי שתוכלו לערוך אותו
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+[מדריך באנגלית של גיטהאב לפתיחת fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
 
-## Generate a new site
+## 3. יש לעשות clone למחשב האישי שלכם
 
-Generate a new Docusaurus site using the **classic template**.
+[מדריך באנגלית של גיטהאב לפתיחת clone מקומי](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
-The classic template will automatically be added to your project after you run the command:
+## 4. פתחו בראנץ' חדש ובצעו בו את השינויים הרצויים.
 
-```bash
-npm init docusaurus@latest my-website classic
+[מדריך באנגלית של גיטהאב לפתיחת בראנץ'](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
+
+## 5. לאחר ביצוע commit יש לבצע push לריפו האישי שלכם.
+
+הפקודות הנדרשות ל commit ול push הן:
+
+```
+git commit -m "your commit message"
+git push --set-upstream origin <branch-name>
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+שימו לב ששם branch זה משהו שיצרתם בסעיף 4
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## 6. פתחו pull-request. נא לציין איזה issue אתם מעוניינים לסגור.
 
-## Start your site
+[מדריך באנגלית של גיטהאב לפתיחת pull-request](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop)
 
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+ומה שנשאר זה שהמתחזק של הפרוייקט יאשר את ה pull-request שלכם!
+ואז תוכלו לראות את הקובץ שהוספתם בכתובת הזו באינטרנט:
+https://melodious-muffin-2be5a1.netlify.app/docs/intro/
+כשתפתחו בתפריט את people :)

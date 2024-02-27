@@ -1,8 +1,10 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+// @ts-ignore
+const lightCodeTheme = require("prism-react-renderer").themes.github;
+// @ts-ignore
+const darkCodeTheme = require("prism-react-renderer").themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -61,19 +63,18 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/docusaurus-social-card.jpg",
       navbar: {
         title: "Ma'akaf - OS practice site",
         logo: {
-          alt: "My Site Logo",
-          src: "img/Maakaf.jpeg",
+          alt: "Ma'akaf Logo",
+          src: "img/maakafLogo.png",
         },
         items: [
           {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Tutorial",
+            label: "!Start Learn OS",
           },
           // { to: "/blog", label: "Blog", position: "left" },
           {
@@ -82,7 +83,7 @@ const config = {
             position: "right",
           },
           {
-            href: "https://discord.gg/TVSpRVqM",
+            href: "https://discord.gg/hwGJXcSwFs",
             label: "Discord",
             position: "right",
           },
