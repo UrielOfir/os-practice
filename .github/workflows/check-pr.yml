@@ -36,7 +36,6 @@ jobs:
                   echo "status='error'" >> $GITHUB_OUTPUT
                   echo "comment='A file named '*.md' must be added in the ./docs/people directory.'"
                   echo "comment=${comment}" >> $GITHUB_OUTPUT
-                  done
               fi
           done
 
