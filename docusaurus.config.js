@@ -63,19 +63,18 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/docusaurus-social-card.jpg",
       navbar: {
         title: "Ma'akaf - OS practice site",
         logo: {
-          alt: "My Site Logo",
-          src: "img/Maakaf.jpeg",
+          alt: "Ma'akaf Logo",
+          src: "img/maakafLogo.png",
         },
         items: [
           {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Tutorial",
+            label: "!Start Learn OS",
           },
           // { to: "/blog", label: "Blog", position: "left" },
           {
