@@ -1,1 +1,0 @@
-practicing OS.
