@@ -1,0 +1,65 @@
+name: Check PR Files and Path
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+  workflow_dispatch:
+
+jobs:
+  check-files-and-path:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check number of changed files
+        id: changed_files
+        uses: tj-actions/changed-files@v42
+
+      - name: Fail if more than 1 file changed
+        id: fail_if_more_than_one_file_changed
+        if: steps.changed_files.outputs.all_changed_and_modified_files_count > 1
+        run: |
+          echo "❌ Only one file change is allowed. Please revert additional changes."
+          echo "status='error'" >> $GITHUB_OUTPUT
+          echo "comment='Only one file change is allowed. Please revert additional changes.'"
+          echo "comment=${comment}" >> $GITHUB_OUTPUT
+
+      - name: Check for added file in ./docs/people
+        id: check_added_file
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed_files.outputs.all_changed_files }}
+        run: |
+          for file in ${ALL_CHANGED_FILES}; do
+              if [[ $file != *"/docs/people/"* || $file != *".md" ]]; then
+                  echo "❌ A file named '*.md' must be added in the ./docs/people directory."
+                  echo "status='error'" >> $GITHUB_OUTPUT
+                  echo "comment='A file named '*.md' must be added in the ./docs/people directory.'"
+                  echo "comment=${comment}" >> $GITHUB_OUTPUT
+              fi
+          done
+
+      - name: All checks passed
+        if: always()
+        run: |
+          echo "✅ All checks passed!"
+          echo "status='success'" >> $GITHUB_OUTPUT
+
+      - name: Comment on PR and prevent approval if error
+        if: steps.fail_if_more_than_one_file_changed.outputs.status == 'error' || steps.check_added_file.outputs.status == 'error'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            const { number } = context.issue;
+            const comment = ${{ steps.check_added_file.outputs.comment || steps.fail_if_more_than_one_file_changed.outputs.comment }};
+            github.issues.createComment({ owner, repo, issue_number: number, body: comment });
+            github.pulls.createReview({
+              owner,
+              repo,
+              pull_number: number,
+              event: 'REQUEST_CHANGES',
+              body: 'There are errors in the PR, please fix them before approval.'
+            });
