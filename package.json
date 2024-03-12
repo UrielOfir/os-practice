@@ -42,5 +42,12 @@
   },
   "engines": {
     "node": ">=16.14"
-  }
+  },
+  "description": "מטרת הפרוייקט היא תרומה של קובץ md שיוצג באתגר בחלק של people. דוגמה לתרומה מוצלחת אפשר לראות פה- [דוגמא לתרומה](https://os-practice.vercel.app/docs/people/%D7%94%D7%95%D7%9E%D7%A8%20%D7%A1%D7%99%D7%9E%D7%A4%D7%A1%D7%95%D7%9F)",
+  "main": "babel.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "author": "",
+  "license": "ISC"
 }
