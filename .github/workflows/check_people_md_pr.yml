@@ -16,7 +16,7 @@ jobs:
       - name: Check if only one file was added in the pr
         if: github.event.pull_request.additions != 1
         run: |
-          echo "::set-output name=Approve::false"
+          echo Approve=false >> $GITHUB_OUTPUT
           exit 1
 
 
