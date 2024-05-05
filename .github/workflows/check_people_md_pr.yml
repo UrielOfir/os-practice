@@ -1,0 +1,25 @@
+name: Check for a new markdown file in docs/people
+on:
+  pull_request:
+    paths:
+      - 'docs/people/*.md'
+
+jobs:
+  check-for-new-md:
+    runs-on: ubuntu-latest
+    env:
+      Approve: true
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check if only one file was added in the pr
+        if: github.event.pull_request.additions != 1
+        run: |
+          echo "Error! Expected exactly 1 file to be added." >> $GITHUB_OUTPUT
+          echo "Approve=false" >> $GITHUB_ENV
+          exit 1
+
+
+
+
