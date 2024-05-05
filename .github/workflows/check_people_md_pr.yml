@@ -16,7 +16,8 @@ jobs:
       - name: Check if only one file was added in the pr
         if: github.event.pull_request.additions != 1
         run: |
-          echo Approve=false >> $GITHUB_OUTPUT
+          echo "Error! Expected exactly 1 file to be added." >> $GITHUB_OUTPUT
+          echo "Approve=false" >> $GITHUB_ENV
           exit 1
 
 
