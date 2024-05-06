@@ -11,7 +11,6 @@ jobs:
       contents: write
     env:
       Approve: true
-      MERGE_LABELS: ""
       ADDED_FILES_COUNT: ""
     steps:
       - name: Checkout Repository
@@ -38,3 +37,4 @@ jobs:
         uses: "pascalgn/automerge-action@v0.16.3"
         env:
             GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+            MERGE_LABELS: ""
