@@ -1,0 +1,40 @@
+name: Check for a new markdown file in docs/people
+on:
+  pull_request:
+    paths:
+      - 'docs/people/*.md'
+
+jobs:
+  check-for-new-md:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      Approve: true
+      ADDED_FILES_COUNT: ""
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Count Added Files
+        id: count-files
+        run: |
+          ADDED_FILES_COUNT=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | wc -l)
+          echo "ADDED_FILES_COUNT=$ADDED_FILES_COUNT" >> $GITHUB_ENV
+          echo "$ADDED_FILES_COUNT new file(s) were added"
+
+      - name: Raise error if not exactly one file was added in the pr
+        if: env.ADDED_FILES_COUNT  != '1'
+        run: |
+          echo "Error! Expected exactly 1 file to be added." >> $GITHUB_OUTPUT
+          echo "Approve=false" >> $GITHUB_ENV
+          exit 1
+
+      - id: automerge
+        name: automerge
+        uses: "pascalgn/automerge-action@v0.16.3"
+        env:
+            GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+            MERGE_LABELS: "md"
