@@ -7,8 +7,11 @@ on:
 jobs:
   check-for-new-md:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     env:
       Approve: true
+      MERGE_LABELS: ""
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -19,7 +22,8 @@ jobs:
           echo "Error! Expected exactly 1 file to be added." >> $GITHUB_OUTPUT
           echo "Approve=false" >> $GITHUB_ENV
           exit 1
-
-
-
-
+      - id: automerge
+        name: automerge
+        uses: "pascalgn/automerge-action@v0.16.3"
+        env:
+            GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
