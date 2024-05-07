@@ -38,4 +38,4 @@ jobs:
         uses: "pascalgn/automerge-action@v0.16.3"
         env:
             GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-            MERGE_LABELS: "md"
+            MERGE_LABELS: ""
