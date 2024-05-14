@@ -23,7 +23,7 @@ jobs:
       - name: Count Added Files
         id: count-files
         run: |
-          ADDED_FILES_COUNT=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }}| wc -l)
+          ADDED_FILES_COUNT=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | wc -l)
           echo "ADDED_FILES_COUNT=$ADDED_FILES_COUNT" >> $GITHUB_ENV
           echo "$ADDED_FILES_COUNT new file(s) were added"
 
