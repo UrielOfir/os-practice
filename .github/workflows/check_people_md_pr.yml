@@ -1,6 +1,6 @@
 name: Check for a new markdown file in docs/people
 on:
-  pull_request:
+  pull_request_target:
     paths:
       - 'docs/people/*.md'
 
@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     env:
       Approve: true
       ADDED_FILES_COUNT: ""
@@ -16,12 +17,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 2
 
       - name: Count Added Files
         id: count-files
         run: |
-          ADDED_FILES_COUNT=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | wc -l)
+          PR_FILES=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" | \
+          jq -r '.[].filename')
+
+          ADDED_FILES_COUNT=$(echo "$PR_FILES" | grep -c '^.*[^/]$')
+
           echo "ADDED_FILES_COUNT=$ADDED_FILES_COUNT" >> $GITHUB_ENV
           echo "$ADDED_FILES_COUNT new file(s) were added"
 
@@ -34,7 +41,20 @@ jobs:
 
       - id: automerge
         name: automerge
-        uses: "pascalgn/automerge-action@v0.16.3"
-        env:
-            GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-            MERGE_LABELS: "md"
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            try {
+            // Attempt to merge the pull request using the squash method
+            const response = await github.rest.pulls.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              merge_method: "merge"
+            })
+
+            } catch(error) {
+              // Set GitHub Action as failed
+              core.setFailed(error.message);
+            }
