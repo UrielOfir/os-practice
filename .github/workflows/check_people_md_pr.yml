@@ -23,7 +23,12 @@ jobs:
       - name: Count Added Files
         id: count-files
         run: |
-          ADDED_FILES_COUNT=$(git diff --name-only ${{ github.sha }} ${{ github.event.pull_request.head.sha }} | wc -l)
+          PR_FILES=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" | \
+          jq -r '.[].filename')
+
+          ADDED_FILES_COUNT=$(echo "$PR_FILES" | grep -c '^.*[^/]$')
+
           echo "ADDED_FILES_COUNT=$ADDED_FILES_COUNT" >> $GITHUB_ENV
           echo "$ADDED_FILES_COUNT new file(s) were added"
 
