@@ -1,1 +1,1 @@
-New MD has arrived 
+New MD has arrived!
