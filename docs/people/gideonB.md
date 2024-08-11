@@ -1,0 +1,1 @@
+This is the file added for issue B
