@@ -1,4 +1,4 @@
-## Thanks for the chance to practice
+## Hi. I'm Mini 😊
 
-# static\img\maakafLogo.png 
+# Follow me [Mini Dzaldov] (https://github.com/MiniDzaldov)
 
