@@ -1,2 +1,2 @@
 Hi😘,
-I am looking for a job
+I am looking for a job 😉
