@@ -1,1 +1,0 @@
-**Hello! I’m Ayala**

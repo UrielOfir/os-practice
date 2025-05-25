@@ -1,1 +1,0 @@
-hello! i'm practicing OS.

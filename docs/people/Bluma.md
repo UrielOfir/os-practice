@@ -1,1 +1,0 @@
-I'm so excited to contribute to open source for the first time!!
