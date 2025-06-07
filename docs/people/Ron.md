@@ -1,0 +1,1 @@
+Hi I'm Ron, and I'm practicing OS :)
