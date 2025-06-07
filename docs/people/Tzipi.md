@@ -1,1 +1,1 @@
-Hello everyone, We're practicing OS!
+Practice contributing to open source

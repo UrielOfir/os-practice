@@ -16,7 +16,7 @@
 ░░░░░░▐▌░░░░░░░░░█░ 
 
 hoooo you are cursed!
-Testing github auto merge action
+Testing github auto merge action.
 
 ▒▒▒░░░░░░░░░░▄▐░░░░
 ▒░░░░░░▄▄▄░░▄██▄░░░
