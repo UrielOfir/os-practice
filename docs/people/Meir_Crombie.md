@@ -12,7 +12,7 @@ Hello! I’m **Meir Crombie**, passionate about technology, creativity, and cont
 
 ## 🌐 Connect With Me
 <!-- Add your social links below -->
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?logo=linkedin&logoColor=white)]([your-linkedin-url](https://www.linkedin.com/in/meircrombie/))
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/meircrombie/)
 
 
 ---
