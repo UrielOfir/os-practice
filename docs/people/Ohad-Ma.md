@@ -2,7 +2,7 @@ Shrek:
 For your information, there's a lot more to ogres than people think.
 
 Donkey:
-Example?.
+Example?
 
 Shrek:
 Example? Okay, um, ogres are like onions.
